@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cash Crops</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search"
+    />
+    <link rel="icon" type="image/png" href="ChatGPTimage.png" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".gallery-item").forEach(function (item) {
+          item.addEventListener("click", function () {
+            var target = this.getAttribute("data-target");
+            // Highlight on click
+            document.querySelectorAll(".gallery-item").forEach(function (el) {
+              el.classList.remove("clicked-highlight");
+            });
+            this.classList.add("clicked-highlight");
+            setTimeout(() => {
+              this.classList.remove("clicked-highlight");
+            }, 3000);
+            // Highlight only the info section header and scroll so header is visible
+            if (target) {
+              var infoSection = document.getElementById(target);
+              if (infoSection) {
+                var header = infoSection.querySelector("h3");
+                if (header) {
+                  header.classList.add("info-highlight-text");
+                  // Scroll so header is at the top of the viewport (with offset for navbar)
+                  var yOffset = -70; // adjust for fixed navbar height
+                  var y =
+                    header.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                  setTimeout(function () {
+                    header.classList.remove("info-highlight-text");
+                  }, 3000);
+                }
+              }
+            }
+          });
+        });
+        // Fade in gallery images on scroll
+        function onScrollFadeIn() {
+          document.querySelectorAll(".gallery-item").forEach(function (item) {
+            var rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+              item.classList.add("visible");
+            }
+          });
+        }
+        window.addEventListener("scroll", onScrollFadeIn);
+        onScrollFadeIn();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="navbar1">
+      <ul class="menu">
+        <li><a href="">Home</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#products">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <img class="logo" src="ChatGPTimage.png" alt="Logo" />
+    <section
+      class="intro-section"
+      style="
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 32px 0 0 0;
+        max-width: 900px;
+      "
+    >
+      <h1>What is Cashew Nut?</h1>
+      <p>
+        The cashew nut is a kidney-shaped seed that grows at the bottom of the
+        cashew apple, the fruit of the cashew tree (Anacardium occidentale). It
+        is prized for its rich, buttery flavor and is enjoyed worldwide as a
+        snack and ingredient in many dishes. Cashew nuts are packed with healthy
+        fats, protein, vitamins, and minerals, making them a nutritious addition
+        to any diet.
+      </p>
+      <h2>Where is Cashew Grown in Ghana?</h2>
+      <p>
+        In Ghana, cashew is mainly grown in the Brong-Ahafo, Northern, Volta,
+        and Eastern regions. The favorable climate and soil conditions in these
+        areas support the cultivation of cashew trees, making Ghana one of the
+        leading producers of cashew nuts in West Africa. The cashew industry
+        provides income for many farmers and contributes significantly to the
+        country's agricultural exports.
+        <br />
+        Cashew plantations are expanding into new regions as demand increases
+        and more farmers adopt cashew as a cash crop.
+        <br />
+        Government and private sector initiatives are supporting research,
+        training, and improved processing to boost Ghana's cashew sector.
+      </p>
+    </section>
+    <div class="gallery">
+      <div class="gallery-item fade-in" data-target="about">
+        <img src="cashew.jpg" alt="Cashew Nut" />
+        <div class="caption">Cashew Nut</div>
+      </div>
+      <div class="gallery-item fade-in" data-target="products">
+        <img src="cocoa.jpg" alt="Cashew Butter" />
+        <div class="caption">Cashew Butter</div>
+      </div>
+      <div class="gallery-item fade-in" data-target="health">
+        <img src="cashew fruit.jpg" alt="Cashew Apple" />
+        <div class="caption">Cashew Apple</div>
+      </div>
+    </div>
+    <div class="gallery-info-section">
+      <div class="gallery-info" id="about">
+        <h3>About Cashew Nut</h3>
+        <p>
+          The cashew nut is a kidney-shaped seed that grows at the bottom of the
+          cashew apple, the fruit of the cashew tree (Anacardium occidentale).
+          It is prized for its rich, buttery flavor and is enjoyed worldwide as
+          a snack and ingredient in many dishes.
+        </p>
+        <p>
+          Cashew nuts are packed with healthy fats, protein, vitamins, and
+          minerals, making them a nutritious addition to any diet. They are
+          especially high in copper, magnesium, and manganese, which are
+          important for energy production, bone health, and brain function.
+        </p>
+        <p>
+          Native to Brazil, cashew trees are now cultivated in many tropical
+          regions, including West Africa, India, and Southeast Asia. The trees
+          thrive in warm climates and are valued for both their nuts and the
+          juicy cashew apple.
+        </p>
+        <p>
+          In Ghana, cashew farming is a significant source of income for many
+          rural communities. The nuts are harvested, processed, and exported,
+          contributing to the country's agricultural economy and providing
+          livelihoods for thousands of farmers.
+        </p>
+        <p>
+          The cashew nut is encased in a hard shell that contains a caustic
+          resin, making processing labor-intensive. Specialized equipment and
+          safety measures are required to extract the edible nut safely.
+        </p>
+        <p>
+          Cashew nuts are used in a variety of culinary applications, from
+          snacks and desserts to savory dishes and sauces. Their creamy texture
+          and mild flavor make them a popular ingredient in vegan and vegetarian
+          recipes.
+        </p>
+        <p>
+          In addition to their culinary uses, cashew nuts are also processed
+          into cashew butter, cashew milk, and other dairy alternatives. These
+          products are gaining popularity among health-conscious consumers and
+          those with dietary restrictions.
+        </p>
+        <p>
+          The global demand for cashew nuts continues to rise, driven by their
+          nutritional benefits and versatility. Ghana is working to improve its
+          processing capacity and quality standards to meet international market
+          requirements.
+        </p>
+        <p>
+          Research is ongoing to develop more efficient and sustainable methods
+          of cashew cultivation and processing. Efforts are also being made to
+          add value locally and increase the income of smallholder farmers.
+        </p>
+        <p>
+          Cashew nuts are not only a delicious and healthy food but also play a
+          vital role in the livelihoods of millions of people in tropical
+          regions around the world.
+        </p>
+      </div>
+      <div class="gallery-info" id="products">
+        <h3>Cashew Butter</h3>
+        <p>
+          Cashew butter is a creamy spread made from ground cashew nuts. It is
+          rich in healthy monounsaturated fats and protein, making it a
+          nutritious alternative to peanut butter and other spreads.
+        </p>
+        <p>
+          This butter is naturally sweet and mild in flavor, making it a
+          versatile ingredient in both sweet and savory dishes. It can be used
+          in baking, smoothies, sauces, or simply as a spread on bread and
+          crackers.
+        </p>
+        <p>
+          Cashew butter is also a popular choice for people with peanut
+          allergies, as it provides a similar texture and taste without the
+          allergens found in peanuts. It is often used in vegan and plant-based
+          recipes as a base for creamy sauces and desserts.
+        </p>
+        <p>
+          In addition to its culinary uses, cashew butter is a good source of
+          essential nutrients such as magnesium, phosphorus, and iron. It
+          supports heart health, muscle function, and overall well-being when
+          included as part of a balanced diet.
+        </p>
+        <p>
+          Cashew butter can be made at home by blending roasted cashew nuts
+          until smooth. Some commercial varieties may include added oils, salt,
+          or sweeteners, so it is important to check the label for ingredients.
+        </p>
+        <p>
+          The smooth texture of cashew butter makes it ideal for use in
+          frostings, dips, and salad dressings. It can also be swirled into
+          oatmeal, yogurt, or used as a topping for pancakes and waffles.
+        </p>
+        <p>
+          Cashew butter is shelf-stable and can be stored at room temperature,
+          but refrigeration is recommended to extend its freshness and prevent
+          oil separation.
+        </p>
+        <p>
+          In Ghana and other cashew-producing countries, cashew butter is
+          gaining popularity as a value-added product that can boost local
+          economies and provide new market opportunities for farmers.
+        </p>
+        <p>
+          Cashew butter is not only delicious but also provides a convenient way
+          to enjoy the nutritional benefits of cashew nuts in a variety of
+          forms.
+        </p>
+        <p>
+          As consumer interest in plant-based and allergen-friendly foods grows,
+          cashew butter is expected to become an increasingly important product
+          in the global food market.
+        </p>
+      </div>
+      <div class="gallery-info" id="health">
+        <h3>Cashew Apple</h3>
+        <p>
+          The cashew apple is the fleshy, pear-shaped fruit to which the cashew
+          nut is attached. It is juicy, sweet, and tangy, and is often eaten
+          fresh or used to make juice, jams, and alcoholic beverages in some
+          countries.
+        </p>
+        <p>
+          Rich in vitamin C and antioxidants, the cashew apple helps boost the
+          immune system and protect the body from free radical damage. Its high
+          water content makes it a refreshing treat in hot climates.
+        </p>
+        <p>
+          Although the cashew apple is not as widely known as the nut, it is
+          highly valued in regions where cashew trees are grown. In Ghana and
+          other West African countries, the fruit is sometimes fermented to
+          produce local alcoholic drinks.
+        </p>
+        <p>
+          The cashew apple is delicate and perishable, which makes it difficult
+          to transport over long distances. As a result, it is mostly consumed
+          locally or processed into juice and other products soon after harvest.
+        </p>
+        <p>
+          Cashew apple juice is a popular beverage in many tropical countries.
+          It is known for its unique flavor and is sometimes blended with other
+          fruits to create refreshing drinks.
+        </p>
+        <p>
+          In addition to juice, the cashew apple can be used to make jams,
+          chutneys, and syrups. Its natural sweetness and acidity make it a
+          versatile ingredient in both sweet and savory recipes.
+        </p>
+        <p>
+          The cashew apple contains dietary fiber, which supports digestive
+          health and helps regulate blood sugar levels. It is also low in
+          calories, making it a healthy snack option.
+        </p>
+        <p>
+          Research is being conducted to explore new uses for cashew apple
+          byproducts, such as animal feed and biofuel, to reduce waste and
+          increase the value of the crop.
+        </p>
+        <p>
+          Despite its many benefits, the cashew apple remains underutilized in
+          many parts of the world. Efforts are underway to promote its
+          consumption and develop new products for local and international
+          markets.
+        </p>
+        <p>
+          The cashew apple is a symbol of the diversity and potential of the
+          cashew tree, offering both nutritional and economic benefits to
+          communities where it is grown.
+        </p>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2025 Cash Crops. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

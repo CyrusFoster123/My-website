@@ -1,0 +1,373 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+
+body{
+    background-color: rgb(242, 246, 242);
+}
+
+.cashew{
+
+margin: 110px auto 30px auto;
+width: 1500px;
+height: 500px;
+border-radius: 10px;
+display: block;
+
+
+}
+  @keyframes appear{
+       from{
+           opacity: 0;
+           scale: 0.5;
+        }
+        to{
+            opacity: 1;
+            scale: 1;
+        }
+    }
+    .cashew {
+        animation: appear 5s linear;
+        animation-timeline: view();;
+        animation-range: entry 0;
+
+    }
+head{
+    background-color: darkgreen;
+}
+
+.search{
+    --padding: 14px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 28px;
+    background: #f6f6f6;
+    transition: box-shadow 0.25s;
+    align-self: center;
+
+
+}
+.search:focus-within {
+    box-shadow: 0,0,2 rgba(0,0,0.75);
+}
+.search-input{
+    font-size: 16px;
+    font-family: 'lexend', sans-serif ;
+    color: #33333333;
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 300px;
+
+}
+
+.search-input::placeholder,
+.search-icon {
+    color: rgb(154, 154, 154);
+
+}
+
+/* Make the .navbar1 menu horizontal and style it for the top of the page */
+.navbar1 {
+    width: 100%;
+    background-color: rgb(57, 79, 57);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    padding-right: 40px;
+    padding-left: 0;
+}
+
+.navbar1 .menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar1 .menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.navbar1 .menu li a:hover {
+    background: darkolivegreen;
+}
+
+/* Make the logo smaller and position it at the top left of the page */
+.logo {
+    width: 80px;
+    height: 40px;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 1200;
+    margin: 0;
+    padding: 0;
+}
+
+/* Center the search bar under the navbar */
+.searchbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .searchbar-container {
+    margin-top: 70px;
+  }
+}
+
+/* Style the cashew-info section to appear at the top of the page, below the navbar */
+.cashew-info {
+    width: 100%;
+    max-width: 700px;
+    margin: 80px auto 30px auto;
+    padding: 24px 32px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #2d3a2d;
+    position: relative;
+    z-index: 2;
+}
+
+.cashew-info h2 {
+    margin-bottom: 12px;
+    color: #3b5e3b;
+    font-size: 2rem;
+}
+
+.cashew-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Arrange two cashew-info cards side by side, aligned to the right */
+.cashew-info-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 80px auto 30px auto;
+    position: relative;
+    z-index: 2;
+}
+
+.cashew-info {
+    width: 350px;
+    max-width: 90vw;
+    /* ...existing cashew-info styles... */
+}
+
+@media (max-width: 900px) {
+  .cashew-info-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .cashew-info {
+    width: 95vw;
+    max-width: 95vw;
+  }
+}
+
+/* Gallery styles and transitions */
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    margin: 60px auto 40px auto;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.gallery-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    overflow: hidden;
+    width: 320px;
+    transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.3s, opacity 0.7s;
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    will-change: opacity, transform;
+}
+
+.gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 0.1s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(57,79,57,0.18), 0 0 0 4px #b6e2b6;
+    background: #f0fff0;
+    z-index: 2;
+}
+
+.gallery-item.clicked-highlight {
+    box-shadow: 0 0 0 6px #ffda7b, 0 8px 32px rgba(57,79,57,0.18);
+    background: #fffbe6;
+    transition: box-shadow 0.3s, background 0.3s;
+    z-index: 3;
+}
+
+.gallery-item.clicked-highlight .caption {
+    background: #fff3c4;
+    color: #a67c00;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.caption {
+    padding: 16px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #3b5e3b;
+    background: #f6f6f6;
+}
+
+/* Animate info cards */
+.appear {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    animation: fadeInUp 1s forwards;
+}
+
+.cashew-info-row .appear:nth-child(1) { animation-delay: 0.2s; }
+.cashew-info-row .appear:nth-child(2) { animation-delay: 0.5s; }
+.cashew-info-row .appear:nth-child(3) { animation-delay: 0.8s; }
+
+footer {
+    width: 100%;
+    background: #3b5e3b;
+    color: #fff;
+    text-align: center;
+    padding: 24px 0 12px 0;
+    font-size: 1rem;
+    margin-top: 40px;
+}
+
+/* Intro section styles */
+.intro-section {
+    max-width: 900px;
+    margin: 110px auto 40px auto;
+    padding: 32px 0 0 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #2d3a2d;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.intro-section h1 {
+    color: #3b5e3b;
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+}
+
+.intro-section h2 {
+    color: #4a7c4a;
+    font-size: 1.5rem;
+    margin: 30px 0 12px 0;
+}
+
+.intro-section p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* Gallery info section styles */
+.gallery-info-section {
+    max-width: 900px;
+    margin: 60px auto 40px auto;
+    padding: 0 12px;
+}
+
+.gallery-info {
+    margin-bottom: 40px;
+    text-align: left;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+.gallery-info h3 {
+    color: #3b5e3b;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.gallery-info ul, .gallery-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.info-highlight {
+    background: #fffbe6 !important;
+    box-shadow: 0 0 0 6px #ffda7b;
+    border-radius: 10px;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.info-highlight-text {
+    background: linear-gradient(90deg, #c8f7c8 60%, transparent 100%) !important;
+    color: #217a21 !important;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 4px;
+    display: inline;
+    padding: 0 4px;
+    box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .intro-section, .gallery-info-section {
+    max-width: 98vw;
+    padding: 0 4vw;
+  }
+}
+
+
