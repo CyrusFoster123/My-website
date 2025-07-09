@@ -8,6 +8,10 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search"
     />
     <link rel="icon" type="image/png" href="ChatGPTimage.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".gallery-item").forEach(function (item) {
@@ -51,14 +55,62 @@
               item.classList.add("visible");
             }
           });
+          // Animate info sections
+          document.querySelectorAll(".gallery-info").forEach(function (info) {
+            var rect = info.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+              info.classList.add("visible-info");
+            }
+          });
         }
-        window.addEventListener("scroll", onScrollFadeIn);
-        onScrollFadeIn();
+        // Animate intro section on scroll
+        function animateIntroSection() {
+          var intro = document.querySelector(".intro-section");
+          if (intro) {
+            var rect = intro.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+              intro.classList.add("intro-animate");
+            }
+          }
+        }
+        // Animate captions in gallery
+        function animateCaptions() {
+          document
+            .querySelectorAll(".gallery-item .caption")
+            .forEach(function (caption) {
+              var rect = caption.parentElement.getBoundingClientRect();
+              if (rect.top < window.innerHeight - 60) {
+                caption.classList.add("caption-animate");
+              }
+            });
+        }
+        // Animate footer on scroll
+        function animateFooter() {
+          var footer = document.querySelector("footer");
+          if (footer) {
+            var rect = footer.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+              footer.classList.add("footer-animate");
+            }
+          }
+        }
+        function onScrollAllAnimations() {
+          onScrollFadeIn();
+          animateIntroSection();
+          animateCaptions();
+          animateFooter();
+        }
+        window.addEventListener("scroll", onScrollAllAnimations);
+        onScrollAllAnimations();
       });
     </script>
   </head>
   <body>
     <div class="navbar1">
+      <span class="brand">
+        <i class="fas fa-seedling logo"></i>
+        <span class="brand-text">AGRI CONNECT</span>
+      </span>
       <ul class="menu">
         <li><a href="">Home</a></li>
         <li><a href="#about">About us</a></li>
@@ -66,7 +118,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-    <img class="logo" src="ChatGPTimage.png" alt="Logo" />
+    <div class="hero-cashew-bg">
+      <span class="hero-cashew-title">Cashew Nut</span>
+    </div>
     <section
       class="intro-section"
       style="
@@ -108,7 +162,7 @@
         <div class="caption">Cashew Nut</div>
       </div>
       <div class="gallery-item fade-in" data-target="products">
-        <img src="cocoa.jpg" alt="Cashew Butter" />
+        <img src="cashew butter.jpeg" alt="Cashew Butter" />
         <div class="caption">Cashew Butter</div>
       </div>
       <div class="gallery-item fade-in" data-target="health">
@@ -119,6 +173,17 @@
     <div class="gallery-info-section">
       <div class="gallery-info" id="about">
         <h3>About Cashew Nut</h3>
+        <p>
+          <strong>History of Cashew:</strong> The cashew tree (Anacardium
+          occidentale) is native to northeastern Brazil and was spread around
+          the world by Portuguese explorers in the 16th century. The Portuguese
+          introduced cashew trees to India and Africa, where the crop adapted
+          well to tropical climates. Over time, cashew cultivation expanded
+          across Asia and Africa, becoming a major cash crop in countries like
+          India, Vietnam, Nigeria, and Ghana. Today, cashew nuts are enjoyed
+          globally, and the crop plays a significant role in the economies of
+          many tropical nations.
+        </p>
         <p>
           The cashew nut is a kidney-shaped seed that grows at the bottom of the
           cashew apple, the fruit of the cashew tree (Anacardium occidentale).
@@ -290,8 +355,214 @@
         </p>
       </div>
     </div>
+    <div class="newsroom-section" id="newsroom">
+      <h2>News Room</h2>
+      <div class="newsroom-articles">
+        <div class="news-article">
+          <h4>Cashew Exports Hit Record High in Ghana</h4>
+          <p>
+            Ghana's cashew exports reached a new milestone this year, with
+            increased demand from international markets. The Ministry of
+            Agriculture attributes this growth to improved farming practices and
+            government support for cashew farmers.
+          </p>
+          <span class="news-date">July 1, 2025</span>
+        </div>
+        <div class="news-article">
+          <h4>New Cashew Processing Plant Opens</h4>
+          <p>
+            A state-of-the-art cashew processing facility has been inaugurated
+            in the Brong-Ahafo region, creating jobs and boosting local
+            economies. The plant is expected to process over 10,000 tons of
+            cashew nuts annually.
+          </p>
+          <span class="news-date">June 20, 2025</span>
+        </div>
+        <div class="news-article">
+          <h4>Cashew Farmers Receive Training</h4>
+          <p>
+            Hundreds of cashew farmers participated in a training program
+            focused on sustainable agriculture and value addition. The
+            initiative aims to enhance productivity and product quality for
+            export.
+          </p>
+          <span class="news-date">June 10, 2025</span>
+        </div>
+        <div class="news-article">
+          <h4>Cashew Nut Prices Remain Stable</h4>
+          <p>
+            Despite global market fluctuations, cashew nut prices in Ghana have
+            remained stable, providing steady income for local farmers. Experts
+            attribute this to strong domestic demand and improved supply chain
+            management.
+          </p>
+          <span class="news-date">May 28, 2025</span>
+        </div>
+        <div class="news-article">
+          <h4>Government Launches Cashew Research Fund</h4>
+          <p>
+            The Ghanaian government has launched a new research fund to support
+            innovation in cashew cultivation and processing. The fund will
+            provide grants to universities and research institutions working on
+            cashew-related projects.
+          </p>
+          <span class="news-date">May 10, 2025</span>
+        </div>
+        <div class="news-article">
+          <h4>International Cashew Conference Announced</h4>
+          <p>
+            Accra will host the 2025 International Cashew Conference, bringing
+            together industry leaders, researchers, and policymakers to discuss
+            trends and opportunities in the global cashew sector.
+          </p>
+          <span class="news-date">April 30, 2025</span>
+        </div>
+      </div>
+    </div>
+    <div class="partners-section">
+      <h2>Trusted By</h2>
+      <div class="partners-slider">
+        <div class="partner-slide">
+          <img
+            src="FAO.png"
+            alt="FAO"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="usaid.png"
+            alt="USAID"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="adb bank.png"
+            alt="ADB Bank"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="Ifad.png"
+            alt="IFAD"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="UNDP.png"
+            alt="UNDP"
+          />
+        </div>
+        <div class="partner-slide">
+          <img src="agric ministry.jpeg" 
+          alt="Ghana MOFA" />
+        </div>
+        <!-- Duplicate slides for seamless infinite effect -->
+        <div class="partner-slide">
+          <img
+            src="FAO.png"
+            alt="FAO"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="usaid.png"
+            alt="USAID"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="adb bank.png"
+            alt="ADB Bank"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="Ifad.png"
+            alt="IFAD"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="UNDP.png"
+            alt="UNDP"
+          />
+        </div>
+        <div class="partner-slide">
+          <img
+            src="agric ministry.jpeg"
+            alt="Ghana MOFA"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="newsletter-section">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>
+        Get the latest cashew news, updates, and insights delivered to your
+        inbox.
+      </p>
+      <form
+        class="newsletter-form"
+        onsubmit="event.preventDefault(); document.getElementById('newsletter-success').style.display='block'; this.reset();"
+      >
+        <input
+          type="email"
+          name="email"
+          class="newsletter-input"
+          placeholder="Enter your email address"
+          required
+        />
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+      <div id="newsletter-success" class="newsletter-success">
+        Thank you for subscribing! You'll receive updates soon.
+      </div>
+    </div>
+    <div class="social-media-section">
+      <h2>Connect With Us</h2>
+      <div class="social-icons">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          class="social-icon facebook"
+          title="Facebook"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          class="social-icon twitter"
+          title="Twitter"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          class="social-icon instagram"
+          title="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a
+          href="mailto:info@agriconnect.com"
+          class="social-icon email"
+          title="Email"
+          ><i class="fas fa-envelope"></i
+        ></a>
+      </div>
+    </div>
     <footer>
-      <p>&copy; 2025 Cash Crops. All rights reserved.</p>
+      <p
+        style="
+          color: #222;
+          text-align: center;
+          font-size: 1rem;
+          margin: 0;
+          padding: 18px 0 8px 0;
+          letter-spacing: 0.5px;
+        "
+      >
+        &copy; 2025 Group 10. All rights reserved.
+      </p>
     </footer>
   </body>
 </html>
